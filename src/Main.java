@@ -9,12 +9,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         List<String> epitopes = new ArrayList<>();
         System.out.println("Enter epitopes separated by new lines:");
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine().trim();
-            if (line.isEmpty()) {
+        while (true) {
+            String line = scanner.nextLine().replaceAll("\\p{Zs}+", "").trim();
+            if (line.isEmpty()) { // Stop when an empty line is entered
                 break;
             }
-            epitopes.add(line);
+            epitopes.add(line.replaceAll("\\s+", "")); // Remove all spaces within the line
         }
         scanner.close();
         String result = connectWords(epitopes);
