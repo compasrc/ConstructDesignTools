@@ -8,10 +8,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<String> epitopes = new ArrayList<>();
-        System.out.println("Enter words (type 'END' to stop):");
+        System.out.println("Enter epitopes separated by new lines:");
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine().trim();
-            if (line.equalsIgnoreCase("END")) {
+            if (line.isEmpty()) {
                 break;
             }
             epitopes.add(line);
